@@ -1,0 +1,10 @@
+{
+  "name": "essentialmc-local",
+  "version": "1.0.0",
+  "description": "EssentialMC local dev server",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {}
+}

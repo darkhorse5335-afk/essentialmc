@@ -1,0 +1,81 @@
+/* ===== CSS 3D GRASS BLOCK ===== */
+.mc-block-wrap {
+  width: 300px;
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 600px;
+  cursor: pointer;
+}
+
+.mc-block-3d {
+  width: 140px;
+  height: 140px;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateX(28deg) rotateY(-38deg);
+  animation: blockFloat 4s ease-in-out infinite;
+  transition: filter 0.3s;
+}
+
+.mc-block-wrap:hover .mc-block-3d {
+  filter: brightness(1.25) drop-shadow(0 0 18px rgba(100,220,80,0.55));
+}
+
+@keyframes blockFloat {
+  0%,100% { transform: rotateX(28deg) rotateY(-38deg) translateY(0px); }
+  50%      { transform: rotateX(28deg) rotateY(-38deg) translateY(-14px); }
+}
+
+.mc-face-3d {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  image-rendering: pixelated;
+  background-size: 100% 100%;
+  border: 2px solid rgba(0,0,0,0.35);
+}
+
+/* TOP — grass green */
+.mc-top-3d {
+  transform: rotateX(90deg) translateZ(70px);
+  background-color: #5d9e3f;
+  background-image:
+    repeating-linear-gradient(90deg, transparent 0px, transparent 16px, rgba(0,0,0,0.12) 16px, rgba(0,0,0,0.12) 17px),
+    repeating-linear-gradient(0deg,  transparent 0px, transparent 16px, rgba(0,0,0,0.12) 16px, rgba(0,0,0,0.12) 17px),
+    radial-gradient(ellipse at 30% 40%, #7ec850 0%, #5d9e3f 60%);
+}
+
+/* FRONT — dirt with grass strip on top */
+.mc-front-3d {
+  transform: translateZ(70px);
+  background-color: #8b5e3c;
+  background-image:
+    /* grass top strip */
+    linear-gradient(180deg, #5d9e3f 0%, #5d9e3f 14%, #7a5430 14%, #7a5430 100%),
+    /* dirt grain */
+    repeating-linear-gradient(90deg, transparent 0px, transparent 8px, rgba(0,0,0,0.08) 8px, rgba(0,0,0,0.08) 9px),
+    repeating-linear-gradient(0deg,  transparent 0px, transparent 8px, rgba(0,0,0,0.08) 8px, rgba(0,0,0,0.08) 9px);
+  background-blend-mode: normal;
+}
+
+/* RIGHT — side, darker */
+.mc-right-3d {
+  transform: rotateY(90deg) translateZ(70px);
+  background-color: #7a5218;
+  background-image:
+    linear-gradient(180deg, #4a8032 0%, #4a8032 14%, #6b4520 14%, #6b4520 100%),
+    repeating-linear-gradient(90deg, transparent 0px, transparent 8px, rgba(0,0,0,0.1) 8px, rgba(0,0,0,0.1) 9px),
+    repeating-linear-gradient(0deg,  transparent 0px, transparent 8px, rgba(0,0,0,0.1) 8px, rgba(0,0,0,0.1) 9px);
+}
+
+/* pills */
+.lp-star-scene {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
