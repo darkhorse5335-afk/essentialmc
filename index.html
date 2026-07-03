@@ -254,8 +254,18 @@
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
   authForms.forEach(f => f.addEventListener('submit', e => { e.preventDefault(); closeModal(); }));
 })();
-/* ── Sağ tıklamayı engelle ── */
+/* ── Sağ tıklamayı ve DevTools'u engelle ── */
 document.addEventListener('contextmenu', e => e.preventDefault());
+document.addEventListener('keydown', e => {
+  // F12
+  if (e.key === 'F12') { e.preventDefault(); return false; }
+  // Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C
+  if (e.ctrlKey && e.shiftKey && ['I','i','J','j','C','c'].includes(e.key)) { e.preventDefault(); return false; }
+  // Ctrl+U (kaynak görüntüle)
+  if (e.ctrlKey && ['U','u'].includes(e.key)) { e.preventDefault(); return false; }
+  // Ctrl+S (kaydet)
+  if (e.ctrlKey && ['S','s'].includes(e.key)) { e.preventDefault(); return false; }
+});
 
 /* ── Navbar scroll ── */
 const nb = document.getElementById('navbar');
