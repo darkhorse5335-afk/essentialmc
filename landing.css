@@ -17,12 +17,12 @@
 
 /* transparent nav on landing, darkens on scroll */
 .landing-body .navbar {
-  background: transparent;
-  border-bottom-color: transparent;
+  background: #000000;
+  border-bottom-color: #1e1e1e;
   transition: background 0.3s, border-color 0.3s;
 }
 .landing-body .navbar.scrolled {
-  background: rgba(10,10,10,0.95);
+  background: #000000;
   backdrop-filter: blur(14px);
   border-bottom-color: var(--border);
 }
