@@ -10,7 +10,7 @@
   object-fit: cover;
   object-position: center center;
   z-index: 0;
-  opacity: 0.45;
+  opacity: 0.55;
   pointer-events: none;
 }
 
@@ -29,6 +29,7 @@
 /* ── Petal zone ── */
 .petal-zone {
   position: relative;
+  overflow: hidden;
 }
 #petalCanvas {
   position: absolute;
