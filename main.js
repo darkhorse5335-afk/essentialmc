@@ -60,7 +60,8 @@ const VERSIONS = [
     changelog:['Initial public release for Minecraft 1.21.1','Core commands: /tpa, /home, /sethome, /warp, /setwarp, /spawn, /setspawn','Player data saved per-world with automatic migration on update','Fully compatible with Fabric API 0.105.0','Basic party system: /party create, invite, accept, leave','Voice chat module — proximity, 16-block default range','Avatar badge system: /badge equip, /badge list'] }
 ];
 
-// ── Pagination state ──────────────────────────────────
+/* ── Versiyon sayfası yolu — mod/ içinden çalışırsa ../ ekle ── */
+const VERSION_BASE = window.location.pathname.includes('/mod/') ? '../versions/' : 'versions/';
 const CHANGELOG_PER_PAGE = 7;
 let changelogPage = 1;
 
@@ -138,7 +139,7 @@ function renderChangelog() {
             <span class="cl-by">on ${v.date}</span>
             ${latestBadge}
           </div>
-          <a href="versions/${v.id}.html" class="btn-dl-green" target="_blank">
+          <a href="${VERSION_BASE}${v.id}.html" class="btn-dl-green" target="_blank">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             Download
           </a>
@@ -203,7 +204,7 @@ function renderVersions() {
         <span class="v-game-tag">${v.gameVer}</span>
         <span class="v-platform">Fabric</span>
         <span class="v-date ${v.dateClass}">${v.date}</span>
-        <a href="versions/${v.id}.html" class="btn-dl-green" target="_blank" onclick="event.stopPropagation()">
+        <a href="${VERSION_BASE}${v.id}.html" class="btn-dl-green" target="_blank" onclick="event.stopPropagation()">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           Download
         </a>
